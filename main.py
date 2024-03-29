@@ -43,6 +43,7 @@ import matplotlib.pyplot as plt
 
 x = np.random.uniform(1,5,1000)
 y = 5*x+7 #np.random.uniform(3,7,1000)
+y = np.exp(x) * np.sin(x**2)
 #aleatoare => independente => decorelate
 plt.scatter(x, y, color='blue')
 K= np.mean(x*y) - np.mean(x)*np.mean(y)
@@ -50,6 +51,8 @@ ao = K/np.var(x)# 3.16
 bo = np.mean(y) - ao * np.mean(x)# 3.17
 print(ao, bo)
 
+ro=K/(np.std(x)*np.std(y))
+print(f"ro este {ro}")
 ox = np.linspace(x.min(), x.max(), 10 ** 3)
 y_est = ao * ox + bo # 3.18 ox ca sa fie o dreapta
 plt.plot(ox, y_est, color='red')
