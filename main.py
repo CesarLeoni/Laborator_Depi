@@ -40,20 +40,51 @@ import matplotlib.pyplot as plt
 
 
 # Problema 3
+#
+# x = np.random.uniform(1,5,1000)
+# y = 5*x+7 #np.random.uniform(3,7,1000)
+# y = np.exp(x) * np.sin(x**2)
+# #aleatoare => independente => decorelate
+# plt.scatter(x, y, color='blue')
+# K= np.mean(x*y) - np.mean(x)*np.mean(y)
+# ao = K/np.var(x)# 3.16
+# bo = np.mean(y) - ao * np.mean(x)# 3.17
+# print(ao, bo)
+#
+# ro=K/(np.std(x)*np.std(y))
+# print(f"ro este {ro}")
+# ox = np.linspace(x.min(), x.max(), 10 ** 3)
+# y_est = ao * ox + bo # 3.18 ox ca sa fie o dreapta
+# plt.plot(ox, y_est, color='red')
+# plt.show()
 
-x = np.random.uniform(1,5,1000)
-y = 5*x+7 #np.random.uniform(3,7,1000)
-y = np.exp(x) * np.sin(x**2)
-#aleatoare => independente => decorelate
-plt.scatter(x, y, color='blue')
-K= np.mean(x*y) - np.mean(x)*np.mean(y)
-ao = K/np.var(x)# 3.16
-bo = np.mean(y) - ao * np.mean(x)# 3.17
-print(ao, bo)
+# Problema 4
+
+y = []
+x = []
+
+for i in range(10**5):
+    zona = np.random.uniform(30,200)
+    stare = np.random.normal(1,0.2)
+    if stare >= 1:
+        opinie = np.random.normal(0,0.2*zona)
+    else:
+        opinie = np.random.uniform(10,70)
+    pret = zona * stare + opinie
+    x.append(zona)
+    y.append(pret)
+
+x=np.array(x)
+y=np.array(y)
+
+R=np.mean(x*y)
+print(f"R este {R}")
+
+K=R-np.mean(x)*np.mean(y)
+print(f"K este {K}")
 
 ro=K/(np.std(x)*np.std(y))
 print(f"ro este {ro}")
-ox = np.linspace(x.min(), x.max(), 10 ** 3)
-y_est = ao * ox + bo # 3.18 ox ca sa fie o dreapta
-plt.plot(ox, y_est, color='red')
+
+plt.scatter(x, y)
 plt.show()
