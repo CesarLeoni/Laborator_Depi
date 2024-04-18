@@ -29,3 +29,23 @@ B1,B0 = p1("text_tema_3.txt")
 
 print(f"B0 este {B0}")
 print(f"B1 este {B1}")
+
+
+
+from scipy.stats import multivariate_normal
+
+# Definirea matricei de covarianță
+cov_matrix = np.array([[1, 0.2, 0.2],
+                       [0.2, 1, 0.2],
+                       [0.2, 0.2, 1]])
+
+# Definirea functiei p2(x)
+def p2(x):
+    mean = np.zeros_like(x)  # Mediile sunt toate zero
+    mvn = multivariate_normal(mean=mean, cov=cov_matrix)
+    return mvn.pdf(x)
+
+# Exemplu de utilizare
+x = np.array([0, 0, 0])  # Punctul în care calculăm densitatea de probabilitate
+density = p2(x)
+print(f"Densitatea de probabilitate în punctul {x} este: {density}")
