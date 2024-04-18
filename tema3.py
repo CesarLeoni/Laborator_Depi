@@ -25,7 +25,7 @@ def p1(numefisier):
     pass
 
 
-B1,B0 = p1("text_tema_3.txt")
+B1,B0 = p1("files/text_tema_3.txt")
 
 print(f"B0 este {B0}")
 print(f"B1 este {B1}")

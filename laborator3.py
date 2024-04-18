@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 # Problema 1
-# data = np.load("penguins.npy")
+# data = np.load("files/penguins.npy")
 #
 # print(data)
 # x = data[:, 0]
